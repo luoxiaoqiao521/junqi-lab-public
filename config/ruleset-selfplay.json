@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "id": "four-dark-selfplay-elimination-1",
+  "runnable": true,
+  "evidence_status": "user_defined_offline_training_not_qq_confirmed",
+  "players": 4,
+  "teams": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      3
+    ]
+  ],
+  "seat_names": [
+    "south",
+    "east",
+    "north",
+    "west"
+  ],
+  "experimental": {
+    "board.points": 129,
+    "turn.order": "ccw",
+    "turn.first_seat": "seeded_random",
+    "combat.bomb_vs_flag": "both_removed",
+    "combat.bomb_vs_mine": "both_removed",
+    "combat.mine_survives_non_engineer": true,
+    "elim.flag_removed_eliminates": true,
+    "elim.no_legal_move": "eliminated_no_movable_piece",
+    "elim.piece_handling": "removed",
+    "marshal_death.reveal_flag": false,
+    "ally.attack": false,
+    "draw.no_progress.limit": 70,
+    "draw.no_progress.unit": "ply",
+    "draw.no_progress.reset_on": "collision",
+    "terminal.priority": "win_before_draw",
+    "reveal.on_collision": "result_only",
+    "sim.truncation_cap": 3000
+  },
+  "evidence": {
+    "board.points": "multi_source_non_qq",
+    "turn.order": "pending R1 (alt: cw)",
+    "turn.first_seat": "pending R1 (alt: fixed_seat_0)",
+    "combat.bomb_vs_flag": "conflict R4 (alt: bomb_captures)",
+    "combat.bomb_vs_mine": "pending R5 (alt: bomb_removed_mine_stays)",
+    "combat.mine_survives_non_engineer": "single_source (alt: false)",
+    "elim.flag_removed_eliminates": "multi_source_non_qq",
+    "elim.no_legal_move": "training profile: temporarily blocked seats pass; exhausted seats retire",
+    "elim.piece_handling": "pending R7 (alt: remain_as_obstacles, not implemented)",
+    "marshal_death.reveal_flag": "pending R2 (alt: true)",
+    "ally.attack": "pending R9",
+    "draw.no_progress.limit": "multi_source_non_qq; pending R6",
+    "draw.no_progress.unit": "pending R6 (alt: round, not implemented)",
+    "draw.no_progress.reset_on": "conflict R6 (alt: capture)",
+    "terminal.priority": "experimental (alt: draw_before_win)",
+    "reveal.on_collision": "pending R3 (alts not implemented)",
+    "sim.truncation_cap": "simulator_guard_not_a_rule"
+  },
+  "topology_notes": "Defined in core/board.cpp. Rail = each seat's front row, 5th row and two side columns (rows 0-4); 3x3 center joined to front rows at columns 0/2/4; corner arcs join seat s side column c=4 to seat s+1 side column c=0. Not yet compared with an independent source (RULE_TESTS A4-A6 pending)."
+}

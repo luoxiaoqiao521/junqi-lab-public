@@ -1,0 +1,19 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>军棋研究台 · 离线回放</title><link rel="stylesheet" href="style.css">
+<header><h1>四国军棋研究台</h1></header>
+<main><section class="board-panel"><div class="panel-head"><span id="mode">南方视角 · 四暗</span><span id="position">等待棋谱</span></div><svg id="board" viewBox="-1 -1 18 18" role="img" aria-label="四国军棋棋盘"></svg>
+<div class="transport"><button id="first" title="第一手">|◀</button><button id="prev" title="上一步">◀</button><button id="play">播放</button><button id="next" title="下一步">▶</button><button id="last" title="最后一手">▶|</button><select id="speed" aria-label="播放速度"><option value="650">正常速度</option><option value="180">快速</option><option value="1200">慢速</option></select></div>
+<input id="timeline" type="range" min="0" max="0" value="0" aria-label="回放进度"></section>
+<aside><section><h2>复盘设置</h2><div class="replay-controls"><label class="file">打开本机棋谱<input id="file" type="file" accept=".jsonl"></label><select id="view" aria-label="观察座位"><option value="0">南方视角</option><option id="view-east" value="1">东方视角</option><option value="2">北方视角</option><option id="view-west" value="3">西方视角</option><option value="4">全明 · 研究复盘</option></select></div><div id="privacy" class="notice">四暗视角：队友与对手军衔隐藏。</div></section>
+<section id="replayInsights" hidden><h2>兵力走势 <small>在盘子数</small></h2>
+<div id="materialLegend" class="material-legend"></div>
+<svg id="materialChart" viewBox="0 0 320 116" role="img" aria-label="双方在盘子数趋势，点击跳转"></svg>
+<label class="review-toggle"><input id="wholeGame" type="checkbox" checked> 显示整局走势和交战导航</label>
+<div id="materialSeats" class="material-seats"></div><p id="flagWatch" class="replay-note"></p></section>
+<section><h2>搏杀复查</h2><p id="event">打开棋谱，或运行“启动研究台”生成一局。</p><p id="exchangeText">暂无走棋记录</p>
+<div class="review-actions"><button id="previousExchange" disabled>上一场交战</button><button id="nextExchange" disabled>下一场交战</button><button id="replyExchange" hidden>回看被反击前的吃子</button></div>
+<p id="decision" class="replay-note">暂无决策记录</p><div class="review-actions"><button id="decisionView" disabled>落子前的棋手视角</button><button id="returnAction" hidden>回到原着</button></div></section>
+<section><h2>对局状态</h2><div id="result" class="result">尚未加载</div><dl><dt>棋手</dt><dd id="policy">—</dd><dt>当前行动方</dt><dd id="turn">—</dd><dt>未进展计数</dt><dd id="quiet">—</dd><dt>对局种子</dt><dd id="seed">—</dd></dl><div id="teams"></div></section>
+<section class="fine"><h2>关于这份记录</h2><p>随机基线与实验启发式，不代表已验证棋力。规则尚未通过 QQ 电脑版实测。</p><p>此页面仅显示日志，不计算合法走法。完整裁判日志含隐藏身份，请只在本机用于复盘。</p><p id="validation">CLI 重放可校验完整规则与状态。</p></section></aside></main>
+<div id="error" role="alert" hidden></div><footer>离线运行 · 无外部素材 · 单一规则核心</footer>
+<script src="demo.js"></script><script src="review.js"></script><script src="app.js"></script></html>

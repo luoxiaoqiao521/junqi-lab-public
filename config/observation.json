@@ -1,0 +1,10 @@
+{
+  "schema_version": 2,
+  "id": "four-dark-experimental-1",
+  "ally_visibility": "none",
+  "own_identity_visible": true,
+  "enemy_identity_visible": false,
+  "collision": "result_only",
+  "marshal_reveals_flag": false,
+  "status": "experimental_not_qq_confirmed"
+}
